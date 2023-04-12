@@ -54,7 +54,7 @@ Route::resource('/buku', BukuController::class);
 
 Route::resource('/transaksi', TransaksiController::class);
 
-Route::post('cari', [TransaksiController::class, 'cari'])->name('cari');
+Route::post('cariTransaksi', [TransaksiController::class, 'cari'])->name('cariTransaksi');
 
 Route::post('cari', [BukuController::class, 'cari'])->name('cari');
 
