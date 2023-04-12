@@ -111,7 +111,7 @@ class TransaksiController extends Controller
      */
     public function destroy($id)
     {
-        Transaksi::where('id', '=', $id)->delete();
+        $transaksi = Transaksi::find($id)->delete();
         return redirect('transaksi')
         ->with('success', 'Transaksi Berhasil Dihapus');
     }

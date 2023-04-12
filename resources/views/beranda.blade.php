@@ -54,7 +54,7 @@
 @push('custom_css')
     <style>
         .card {
-            background: green;
+            background: grey;
             color: white;
             transition: 0.5s;
         }

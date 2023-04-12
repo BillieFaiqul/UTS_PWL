@@ -47,7 +47,4 @@
   </div>
 @endsection
 @push('custom_js')
-    <script>
-        alert('Selamat Datang');
-    </script>
 @endpush

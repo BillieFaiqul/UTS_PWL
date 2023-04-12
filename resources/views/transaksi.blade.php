@@ -16,7 +16,7 @@
           </div>
         </div>
       </div><!-- /.container-fluid -->
-      <form class="row mb-3 mt-5" action="{{ route('cari') }}" method="POST">
+      <form class="row mb-3 mt-5" action="{{ route('cariTransaksi') }}" method="POST">
         @csrf
         <div class="col-md-6">
             <div class="d-flex flex-row">
@@ -70,12 +70,29 @@
                       <td>
                         <!-- Bikin tombol edit dan delete -->
                         <a href="{{ url('/transaksi/'. $t->id.'/edit') }}" class="btn btn-sm btn-warning">edit</a>
-  
-                        <form method="POST" action="{{ url('/transaksi/'.$t->id) }}" >
-                          @csrf
-                          @method('DELETE')
-                          <button type="submit" class="btn btn-sm btn-danger">hapus</button>
-                        </form>
+
+                        <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#confirm-delete">Hapus</button>
+                        <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                              <div class="modal-content">
+                                  <div class="modal-header">
+                                      <h4 class="modal-title" id="myModalLabel">Konfirmasi Penghapusan Data</h4>
+                                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                  </div>
+                                  <div class="modal-body">
+                                      <p>Anda yakin ingin menghapus data ini?</p>
+                                  </div>
+                                  <div class="modal-footer">
+                                      <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                                      <form method="POST" action="{{ url('/transaksi/'.$t->id) }}" >
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                                      </form>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
                       </td>
                     </tr>
                   @endforeach

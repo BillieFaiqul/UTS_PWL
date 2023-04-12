@@ -54,7 +54,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::resource('/transaksi', TransaksiController::class);
 
-    Route::post('cariTransaksi', [TransaksiController::class, 'cari'])->name('cariTransaksi');
+    Route::post('cari', [TransaksiController::class, 'cari'])->name('cari');
 
     Route::post('cariBuku', [BukuController::class, 'cari'])->name('cariBuku');
 
