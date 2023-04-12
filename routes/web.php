@@ -41,18 +41,14 @@ Auth::routes();
 Route::get('logout', [LoginController::class, 'logout']);
 
 Route::middleware(['auth'])->group(function(){
-    //semua url selain Auth dan logout
+
     Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/aboutas', [AboutAsController::class, 'index']);
 
 Route::resource('contactus', ContactUsController::class);
 
-Route::get('/about', [AboutController::class, 'index']);
-
 Route::get('/dashboard', [DashboardController::class, 'index']);
-
-Route::get('/profile', [ProfileController::class, 'index']);
 
 Route::resource('/buku', BukuController::class);
 
