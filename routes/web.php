@@ -40,25 +40,23 @@ use Illuminate\Support\Facades\Auth;
 Auth::routes();
 Route::get('logout', [LoginController::class, 'logout']);
 
-Route::middleware(['auth'])->group(function(){
+Route::middleware(['auth'])->group(function () {
 
     Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/aboutas', [AboutAsController::class, 'index']);
+    Route::get('/aboutas', [AboutAsController::class, 'index']);
 
-Route::resource('contactus', ContactUsController::class);
+    Route::resource('contactus', ContactUsController::class);
 
-Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('/dashboard', [DashboardController::class, 'index']);
 
-Route::resource('/buku', BukuController::class);
+    Route::resource('/buku', BukuController::class);
 
-Route::resource('/transaksi', TransaksiController::class);
+    Route::resource('/transaksi', TransaksiController::class);
 
-Route::post('cari', [TransaksiController::class, 'cari'])->name('cari');
+    Route::post('cariTransaksi', [TransaksiController::class, 'cari'])->name('cariTransaksi');
 
-Route::post('cari', [BukuController::class, 'cari'])->name('cari');
+    Route::post('cariBuku', [BukuController::class, 'cari'])->name('cariBuku');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
-
-

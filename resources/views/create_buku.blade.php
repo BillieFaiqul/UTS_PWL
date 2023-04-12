@@ -26,9 +26,9 @@
             <label>Genre</label>
             <select class="form-control" @error('Genre') is-invalid @enderror value="{{ isset($bk)? $bk->Genre : old('Genre') }}" name="Genre">
               <option value="">--Genre--</option>
-              <option value="komedi">komedi</option>
-              <option value="aksi">aksi</option>
-              <option value="horor">horor</option>
+              <option value="komedi" {{ $bk->Genre == 'komedi'? 'selected' : '' }}>komedi</option>
+              <option value="aksi" {{ $bk->Genre == 'aksi'? 'selected' : '' }}>aksi</option>
+              <option value="horor" {{ $bk->Genre == 'horor'? 'selected' : '' }}>horor</option>
             </select>
             @error('Genre')
               <span class="error invalid-feedback">{{ $message }}</span>
@@ -37,14 +37,13 @@
     </div>
     
     <div class="form-group">
-        <div class="form-group">
-             <label>Tangal Terbit</label>
-             <input class="form-control" @error('Tanggal_Terbit') is-invalid @enderror type="date" value="{{ isset($mhs)? $mhs->Tanggal_Terbit : old('Tanggal_Terbit') }}" name="Tanggal_Terbit">
-             @error('Tanggal_Terbit')
-                 <span class="error invalid-feedback">{{ $message }}</span>
-             @enderror
-           </div>
-         </div>
+        <div class="form-gorup">
+            <label>Tanggal Terbit</label>
+            <input class="form-control @error('Tanggal_Terbit') is-invalid @enderror" value="{{ isset($bk)? $bk->Tanggal_Terbit : old('Tanggal_Terbit') }}" name="Tanggal_Terbit" type="date">
+            @error('Tanggal_Terbit')
+            <span class="error invalid-feedback">{{ $message }}</span>
+            @enderror
+        </div>
      </div>
     
     
